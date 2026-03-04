@@ -1,4 +1,4 @@
-# ⚙️ Agentic File Architect v3.0
+# ⚙️ Agentic File Architect 
 
 **Intelligent, LLM-Powered File Organization & System Optimization for Windows**
 
