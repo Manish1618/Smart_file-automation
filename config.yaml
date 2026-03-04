@@ -1,0 +1,85 @@
+# ─────────────────────────────────────────────────────────
+# Agentic File Architect v3.0 — Configuration
+# ─────────────────────────────────────────────────────────
+
+# ── Scan Settings ────────────────────────────────────────
+max_depth: 3
+min_file_size: 0          # bytes
+max_file_size: 10737418240  # 10 GB
+
+# Target directories (in addition to Desktop & Downloads)
+extra_paths: []
+
+# ── v3.0: Full Drive Scan ────────────────────────────────
+drive_scan:
+  enabled: true
+  drives:
+    - "C:\\"
+    - "D:\\"
+  depth_per_zone:
+    user_documents: 5
+    user_desktop: 2
+    user_downloads: 2
+    user_appdata: 1
+    data_drive: 4
+    custom_roots: 3
+  skip_hidden_folders: true
+  folder_context_analysis: true
+  fca_sample_size: 10
+
+# ── Workspace Configuration ──────────────────────────────
+workspace_root: "C:\\Workspace"
+
+workspace_map:
+  Code/Python:            "Code/Python"
+  Code/C++:               "Code/C++"
+  Code/Arduino:           "Engineering/Arduino"
+  Code/Web:               "Code/Web"
+  Code/Rust:              "Code/Rust"
+  Code/Java:              "Code/Java"
+  Document/PDF:           "Documents/PDF"
+  Document/Word:          "Documents/Reports"
+  Document/Spreadsheet:   "Finance"
+  Media/Image:            "Media/Images"
+  Media/Video:            "Media/Videos"
+  Media/Audio:            "Media/Audio"
+  Media/RAW:              "Photography/RAW"
+  Design/CAD:             "Engineering/CAD"
+  Design/3DPrint:         "Engineering/3DPrint"
+  Archive:                "Archives"
+  Data/CSV:               "Data"
+  Data/JSON:              "Data"
+
+# ── Classifier Mode ─────────────────────────────────────
+classifier:
+  mode: "local"                   # local-only heuristic classification
+
+# ── Cleanup Settings ────────────────────────────────────
+cleanup:
+  delete_compiler_artifacts: true
+  delete_python_cache: true
+  delete_node_modules_orphaned: true
+  delete_logs_older_than_days: 30
+  delete_logs_larger_than_mb: 50
+  delete_windows_temp: true
+
+# ── v3.0: Smart Usage Brain ─────────────────────────────
+usage_brain:
+  enabled: true
+  analysis_frequency: "weekly"
+  staleness_thresholds:
+    recommend_delete: 0.85
+    consider_archive: 0.60
+  signal_weights:
+    days_since_access: 0.40
+    days_since_modify: 0.30
+    file_size_waste: 0.15
+    duplicate_score: 0.15
+  duplicate_detection: true
+  max_hash_file_size_mb: 500
+
+# ── Safety Overrides (USE WITH CAUTION) ──────────────────
+additional_exclusions: []
+
+# ── Output Preferences ──────────────────────────────────
+output_format: "ascii"   # ascii | mermaid | html | json
